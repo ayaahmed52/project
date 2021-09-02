@@ -398,11 +398,11 @@
 		</span>
 	</div>
 	<?php  
-           $pro_id=$_GET['id'];
+           $pro_id=$_GET['catid'];
            require_once'admin/functions/connect.php';
-           $SelPro = "SELECT * FROM product WHERE id ='$pro_id'";
+           $SelPro = "SELECT * FROM product WHERE cat_name ='$pro_id'";
            $query = $conn -> query($SelPro);
-            $product = $query -> fetch_assoc();   
+          foreach ($query as $product) {    
 		?>
 	<!-- Product Detail -->
 	<div class="container bgwhite p-t-35 p-b-80">
@@ -418,17 +418,6 @@
 							</div>
 						</div>
 
-						<div class="item-slick3" data-thumb="admin/imges/<?= $product['img'] ?>">
-							<div class="wrap-pic-w">
-								<img src="admin/imges/<?= $product['img'] ?>" alt="IMG-PRODUCT">
-							</div>
-						</div>
-
-						<div class="item-slick3" data-thumb="admin/imges/<?= $product['img'] ?>">
-							<div class="wrap-pic-w">
-								<img src="admin/imges/<?= $product['img'] ?>" alt="IMG-PRODUCT">
-							</div>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -556,7 +545,7 @@
 		</div>
 	</div>
 
-
+<?php } ?>
 	<!-- Relate Product -->
 	<section class="relateproduct bgwhite p-t-45 p-b-138">
 		<div class="container">
