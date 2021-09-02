@@ -169,7 +169,7 @@
                          $selectPro="SELECT * FROM product";
                       }else{
               	            $catId=$_GET['catid'];
-              	       $selectPro="SELECT * FROM product WHERE id = '$catId'";
+              	       $selectPro="SELECT * FROM product WHERE cat_name = '$catId'";
                              }
                           //$selectPro = "SELECT * FROM product";
                           $query = $conn -> query($selectPro);
